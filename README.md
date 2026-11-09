@@ -1,32 +1,26 @@
-# React + TypeScript + Vite
+# Movie Search APP (Поиск фильмов)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Приложение для поиска фильмов и сериалов с возможностью добавления в избранное. Написано на React + TypeScript с использованием OMDb API.
 
-Currently, two official plugins are available:
+## Стек технологий
+- React 18 + TypeScript
+- Vite (сборка)
+- React Router v6 (роутинг)
+- OMDb API (внешнее API)
+- CSS (адаптивная вёрстка, Grid/Flexbox)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Функционал
+- Поиск фильмов по названию.
+- Страница с детальной информацией (постер, год, жанр, актёры, описание).
+- Добавление/удаление фильмов в «Избранное».
+- Сохранение избранного в LocalStorage (не пропадает после перезагрузки).
+- Обработка состояний загрузки и ошибок.
+- Адаптивный дизайн (удобно смотреть на телефоне).
 
-## React Compiler
+## Как запустить локально
+1. Клонировать репозиторий.
+2. Создать файл ".env.local" и добавить туда "VITE_OMDB_APIKEY=твой_ключ".
+3. Выполнить "npm install" и "npm run dev".
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Демо
+https://movie-app-rho-flame.vercel.app/
