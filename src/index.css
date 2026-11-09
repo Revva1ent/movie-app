@@ -1,0 +1,218 @@
+/* --- Базовые стили --- */
+:root {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #333;
+  background-color: #f4f4f9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Контейнеры страниц */
+.home-page, .movie-page, .favorites-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 32px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #08060d;
+}
+
+/* --- Шапка с поиском и ссылкой --- */
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header-row h1 {
+  margin: 0;
+}
+
+.header-row a {
+  color: #4a90e2;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.header-row a:hover {
+  text-decoration: underline;
+}
+
+/* Форма поиска */
+.home-page form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.home-page input {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+
+.home-page input:focus {
+  border-color: #4a90e2;
+}
+
+.home-page button {
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.home-page button:hover {
+  background-color: #357abd;
+}
+
+/* --- Сетка карточек --- */
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.movie-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.movie-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  background-color: #eee; /* заглушка, пока грузится */
+}
+
+.movie-card h3 {
+  font-size: 16px;
+  margin: 0 0 5px;
+  line-height: 1.2;
+}
+
+.movie-card p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Кнопка удаления в избранном */
+.movie-card button {
+  margin-top: auto;
+  padding: 8px;
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.movie-card button:hover {
+  background: #d9363e;
+}
+
+/* --- Страница фильма --- */
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #4a90e2;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.fav-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f5c518;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.fav-btn:hover {
+  background-color: #e0b010;
+}
+
+.movie-page img {
+  max-width: 300px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  float: left;
+  margin-right: 30px;
+}
+
+.movie-page p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* --- Адаптив для телефонов --- */
+@media (max-width: 600px) {
+  .movies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .movie-card {
+    padding: 10px;
+  }
+
+  .home-page form {
+    flex-direction: column;
+  }
+
+  .movie-page img {
+    float: none;
+    margin-right: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+}
